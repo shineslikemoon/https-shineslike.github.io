@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Valentine bbu?</title>
+  <style>
+    :root {
+      --baby-pink: #f7b2c4;
+      --soft-pink: #fde2ea;
+      --hot-pink: #ff6f91;
+      --lavender: #cdb4db;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Comic Sans MS', 'Segoe UI', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--soft-pink), var(--lavender));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5a2a3a;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 24px;
+      width: 90%;
+      max-width: 420px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      animation: floatIn 0.8s ease;
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      color: var(--baby-pink);
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 26px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(0,0,0,0.18);
+    }
+
+    .yes {
+      background: var(--hot-pink);
+      color: white;
+    }
+
+    .no {
+      background: #ffd1dc;
+      color: #7a2e46;
+    }
+
+    .heart {
+      font-size: 2.5rem;
+      animation: beat 1.2s infinite;
+      margin-bottom: 10px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: QUESTION -->
+  <div class="card" id="page-question">
+    <div class="heart">💗</div>
+    <h1>Will you be my Valentine?</h1>
+    <p>I promise laughs, love, and lots of sweet moments 💕</p>
+    <div class="buttons">
+      <button class="yes" onclick="goYes()">Yes 💖</button>
+      <button class="no" onclick="goNo()">No 🙈</button>
+    </div>
+  </div>
+
+  <!-- PAGE 2: YES -->
+  <div class="card" id="page-yes" style="display:none;">
+    <div class="heart">🥰</div>
+    <h1>Okk… It’s a date!</h1>
+    <p>You just made my heart do happy cartwheels...muhaaaaaaaaaa bbu💞<br/>I’m so excited to be yours.</p>
+    <p><strong>Be mine 💕</strong></p>
+  </div>
+
+  <!-- PAGE 3: NO (PLAYFUL, RESPECTFUL) -->
+  <div class="card" id="page-no" style="display:none;">
+    <div class="heart">🥺</div>
+    <h1>Bubu… think again?</h1>
+    <p> Aahan😈 you seriously think u can say no to me say yes, you have no other option to escape, say yes 💗</p>
+    <div class="buttons">
+      <button class="yes" onclick="goYes()">Okay, yes 💖</button>
+    </div>
+  </div>
+
+  <script>
+    function hideAll() {
+      document.getElementById('page-question').style.display = 'none';
+      document.getElementById('page-yes').style.display = 'none';
+      document.getElementById('page-no').style.display = 'none';
+    }
+
+    function goYes() {
+      hideAll();
+      document.getElementById('page-yes').style.display = 'block';
+    }
+
+    function goNo() {
+      hideAll();
+      document.getElementById('page-no').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
